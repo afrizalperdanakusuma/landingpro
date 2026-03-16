@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jasa Pembuatan Landing Page Profesional | Konversi Tinggi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bg: '#0a0a0a',
+                        bgElevated: '#141414',
+                        bgCard: '#1a1a1a',
+                        fg: '#fafafa',
+                        fgMuted: '#a1a1aa',
+                        accent: '#d4a24c',
+                        accentLight: '#e8c47a',
+                        accentDark: '#b08830',
+                        border: '#27272a',
+                        success: '#22c55e',
+                    },
+                    fontFamily: {
+                        display: ['Cormorant Garamond', 'serif'],
+                        body: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --fg: #fafafa;
+            --accent: #d4a24c;
+            --accent-light: #e8c47a;
+            --muted: #a1a1aa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--fg);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        @keyframes pulse-ring {
+            0% { transform: scale(0.95); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+            100% { transform: scale(0.95); opacity: 1; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .animate-fade-up {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .animate-fade {
+            opacity: 0;
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
+        .delay-600 { animation-delay: 0.6s; }
+
+        /* Background Elements */
+        .bg-pattern {
+            background-image: 
+                radial-gradient(ellipse at 20% 20%, rgba(212, 162, 76, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(212, 162, 76, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(212, 162, 76, 0.03) 0%, transparent 70%);
+        }
+
+        .bg-grid {
+            background-image: 
+                linear-gradient(rgba(212, 162, 76, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(212, 162, 76, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+
+        /* Gold Shimmer Effect */
+        .gold-shimmer {
+            background: linear-gradient(
+                90deg,
+                var(--accent) 0%,
+                var(--accent-light) 25%,
+                var(--accent) 50%,
+                var(--accent-light) 75%,
+                var(--accent) 100%
+            );
+            background-size: 200% 100%;
+            animation: shimmer 3s linear infinite;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Button Styles */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 50%, var(--accent) 100%);
+            background-size: 200% 200%;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            background-position: 100% 0;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(212, 162, 76, 0.3);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+
+        /* Card Hover Effects */
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(212, 162, 76, 0.2);
+        }
+
+        /* Scroll Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Divider */
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            opacity: 0.3;
+        }
+
+        /* Focus States */
+        button:focus-visible,
+        a:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 4px;
+        }
+
+        /* Floating Elements */
+        .float-element {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Price Strike */
+        .price-strike {
+            position: relative;
+        }
+
+        .price-strike::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 100%;
+            height: 2px;
+            background: #ef4444;
+            transform: rotate(-5deg);
+        }
+
+        /* Counter Animation */
+        .counter-box {
+            background: linear-gradient(135deg, rgba(212, 162, 76, 0.1) 0%, rgba(212, 162, 76, 0.05) 100%);
+            border: 1px solid rgba(212, 162, 76, 0.3);
+        }
+
+        /* FAQ Accordion */
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+
+        /* Testimonial Card */
+        .testimonial-card {
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.9) 0%, rgba(20, 20, 20, 0.9) 100%);
+            border: 1px solid rgba(212, 162, 76, 0.15);
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 100%);
+        }
+    </style>
+</head>
+<body class="bg-pattern">
+    <!-- Background Grid Overlay -->
+    <div class="fixed inset-0 bg-grid pointer-events-none opacity-50"></div>
+    
+    <!-- Floating Decorative Elements -->
+    <div class="fixed top-20 left-10 w-64 h-64 bg-accent/5 rounded-full blur-3xl pointer-events-none float-element"></div>
+    <div class="fixed bottom-20 right-10 w-96 h-96 bg-accent/3 rounded-full blur-3xl pointer-events-none float-element" style="animation-delay: -3s;"></div>
+
+    <!-- HEADER -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-bg/80 backdrop-blur-xl border-b border-border">
+        <div class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-gradient-to-br from-accent to-accentLight rounded-lg flex items-center justify-center">
+                    <svg class="w-5 h-5 text-bg" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                </div>
+                <span class="font-display text-xl font-semibold text-fg">LandingPro</span>
+            </div>
+            <a href="#cta-section" class="text-sm font-medium text-accent hover:text-accentLight transition-colors">
+                Hubungi Kami
+            </a>
+        </div>
+    </header>
+
+    <main class="relative z-10">
+        <!-- HERO SECTION -->
+        <section class="min-h-screen flex items-center pt-20 pb-16 px-6">
+            <div class="max-w-3xl mx-auto text-center">
+                <!-- Badge -->
+                <div class="animate-fade-up inline-flex items-center gap-2 px-4 py-2 bg-bgCard border border-accent/20 rounded-full mb-8">
+                    <span class="w-2 h-2 bg-success rounded-full animate-pulse"></span>
+                    <span class="text-sm text-fgMuted">Dipercaya 500+ Bisnis di Seluruh Indonesia</span>
+                </div>
+
+                <!-- Main Headline -->
+                <h1 class="animate-fade-up delay-100 font-display text-4xl md:text-5xl lg:text-6xl font-bold text-fg leading-tight mb-6">
+                    Website Anda Sudah Jadi, Tapi 
+                    <span class="gold-shimmer">Tidak Menghasilkan Penjualan?</span>
+                </h1>
+
+                <!-- Subheadline -->
+                <p class="animate-fade-up delay-200 text-lg md:text-xl text-fgMuted leading-relaxed mb-8 max-w-2xl mx-auto">
+                    Kami merancang landing page yang tidak hanya terlihat profesional, tetapi dirancang secara strategis untuk mengubah pengunjung menjadi pelanggan potensial.
+                </p>
+
+                <!-- CTA Buttons -->
+                <div class="animate-fade-up delay-300 flex flex-col items-center gap-4">
+                    <a href="#cta-section" class="btn-primary px-8 py-4 text-bg font-semibold text-lg rounded-xl w-full max-w-md">
+                        Konsultasi Gratis Sekarang
+                    </a>
+                    <p class="text-sm text-fgMuted">
+                        Tanpa komitmen. Diskusi kebutuhan bisnis Anda.
+                    </p>
+                </div>
+
+                <!-- Trust Indicators -->
+                <div class="animate-fade-up delay-400 mt-12 pt-8 border-t border-border">
+                    <p class="text-sm text-fgMuted mb-4">Dipercaya oleh berbagai industri:</p>
+                    <div class="flex flex-wrap justify-center gap-6 text-fgMuted/60">
+                        <span class="text-sm font-medium">E-Commerce</span>
+                        <span class="text-sm font-medium">Property</span>
+                        <span class="text-sm font-medium">Education</span>
+                        <span class="text-sm font-medium">F&B</span>
+                        <span class="text-sm font-medium">Services</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROBLEM SECTION (STOP) -->
+        <section class="py-20 px-6 bg-bgElevated/50">
+            <div class="max-w-3xl mx-auto">
+                <div class="reveal">
+                    <span class="inline-block text-accent text-sm font-semibold tracking-wider uppercase mb-4">Masalah Yang Sering Dihadapi</span>
+                    <h2 class="font-display text-3xl md:text-4xl font-bold text-fg mb-6">
+                        Apakah Ini Yang Anda Alami Saat Ini?
+                    </h2>
+                </div>
+
+                <div class="space-y-4 mt-8">
+                    <div class="reveal card-hover bg-bgCard border border-border rounded-xl p-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-red-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-fg mb-1">Traffic Tinggi, Tapi Konversi Rendah</h3>
+                                <p class="text-fgMuted text-sm">Pengunjung banyak yang datang, namun sedikit yang menghubungi atau membeli.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="reveal card-hover bg-bgCard border border-border rounded-xl p-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-red-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-fg mb-1">Website Tidak Mencerminkan Kredibilitas Bisnis</h3>
+                                <p class="text-fgMuted text-sm">Tampilan website kurang profesional sehingga calon pelanggan ragu untuk mempercayai bisnis Anda.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="reveal card-hover bg-bgCard border border-border rounded-xl p-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-red-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-fg mb-1">Tidak Ada Tim IT Untuk Update Website</h3>
+                                <p class="text-fgMuted text-sm">Website susah diperbarui dan bergantung pada developer yang sulit dihubungi.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="reveal card-hover bg-bgCard border border-border rounded-xl p-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-red-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-fg mb-1">Budget Terbuang Untuk Iklan Yang Kurang Efektif</h3>
+                                <p class="text-fgMuted text-sm">Mengeluarkan biaya iklan besar, tapi hasilnya tidak sebanding dengan pengeluaran.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reveal mt-10 text-center">
+                    <p class="text-fgMuted">
+                        Jika Anda mengalami salah satu masalah di atas, Anda tidak sendirian. Banyak pemilik bisnis menghadapi tantangan yang sama.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOLUTION SECTION (LOOK) -->
+        <section class="py-20 px-6">
+            <div class="max-w-3xl mx-auto">
+                <div class="reveal text-center mb-12">
+                    <span class="inline-block text-accent text-sm font-semibold tracking-wider uppercase mb-4">Solusi Untuk Bisnis Anda</span>
+                    <h2 class="font-display text-3xl md:text-4xl font-bold text-fg mb-6">
+                        Landing Page Yang Dirancang Untuk Mengkonversi
+                    </h2>
+                    <p class="text-fgMuted text-lg">
+                        Kami menggabungkan desain profesional dengan strategi copywriting berbasis psikologi konsumen untuk hasil yang optimal.
+                    </p>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="reveal card-hover bg-bgCard border border-accent/20 rounded-2xl p-8">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-accent/20 to-accentLight/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-fg text-lg mb-2">Copywriting Berbasis Riset</h3>
+                                <p class="text-fgMuted">Setiap kata ditulis berdasarkan riset pasar dan psikologi konsumen, bukan sekadar asal menulis.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="reveal card-hover bg-bgCard border border-accent/20 rounded-2xl p-8">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-accent/20 to-accentLight/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-fg text-lg mb-2">Desain UI/UX Profesional</h3>
+                                <p class="text-fgMuted">Tampilan modern dan responsif yang membangun kepercayaan di semua perangkat.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="reveal card-hover bg-bgCard border border-accent/20 rounded-2xl p-8">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-accent/20 to-accentLight/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-fg text-lg mb-2">Optimasi Kecepatan Loading</h3>
+                                <p class="text-fgMuted">Halaman yang cepat untuk mencegah pengunjung pergi sebelum melihat penawaran Anda.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="reveal card-hover bg-bgCard border border-accent/20 rounded-2xl p-8">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-accent/20 to-accentLight/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-fg text-lg mb-2">Aman Untuk Iklan Digital</h3>
+                                <p class="text-fgMuted">Sesuai dengan kebijakan Meta Ads dan Google Ads untuk meminimalkan risiko penolakan.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROCESS SECTION -->
+        <section class="py-20 px-6 bg-bgElevated/50">
+            <div class="max-w-3xl mx-auto">
+                <div class="reveal text-center mb-12">
+                    <span class="inline-block text-accent text-sm font-semibold tracking-wider uppercase mb-4">Proses Kerja</span>
+                    <h2 class="font-display text-3xl md:text-4xl font-bold text-fg mb-6">
+                        Bagaimana Kami Bekerja
+                    </h2>
+                </div>
+
+                <div class="space-y-0">
+                    <div class="reveal relative pl-8 pb-8 border-l-2 border-accent/30">
+                        <div class="absolute left-0 top-0 w-4 h-4 bg-accent rounded-full -translate-x-[7px]"></div>
+                        <div class="bg-bgCard border border-border rounded-xl p-6 ml-4">
+                            <span class="text-accent text-sm font-semibold">Tahap 1</span>
+                            <h3 class="font-semibold text-fg text-lg mt-1 mb-2">Konsultasi & Briefing</h3>
+                            <p class="text-fgMuted text-sm">Diskusi mendalam tentang bisnis, target audience, dan tujuan yang ingin dicapai.</p>
+                        </div>
+                    </div>
+
+                    <div class="reveal relative pl-8 pb-8 border-l-2 border-accent/30">
+                        <div class="absolute left-0 top-0 w-4 h-4 bg-accent rounded-full -translate-x-[7px]"></div>
+                        <div class="bg-bgCard border border-border rounded-xl p-6 ml-4">
+                            <span class="text-accent text-sm font-semibold">Tahap 2</span>
+                            <h3 class="font-semibold text-fg text-lg mt-1 mb-2">Riset & Strategi</h3>
+                            <p class="text-fgMuted text-sm">Analisis kompetitor dan penyusunan strategi copywriting yang sesuai.</p>
+                        </div>
+                    </div>
+
+                    <div class="reveal relative pl-8 pb-8 border-l-2 border-accent/30">
+                        <div class="absolute left-0 top-0 w-4 h-4 bg-accent rounded-full -translate-x-[7px]"></div>
+                        <div class="bg-bgCard border border-border rounded-xl p-6 ml-4">
+                            <span class="text-accent text-sm font-semibold">Tahap 3</span>
+                            <h3 class="font-semibold text-fg text-lg mt-1 mb-2">Desain & Development</h3>
+                            <p class="text-fgMuted text-sm">Pembuatan desain visual dan pengembangan website dengan standar terbaik.</p>
+                        </div>
+                    </div>
+
+                    <div class="reveal relative pl-8">
+                        <div class="absolute left-0 top-0 w-4 h-4 bg-accent rounded-full -translate-x-[7px]"></div>
+                        <div class="bg-bgCard border border-border rounded-xl p-6 ml-4">
+                            <span class="text-accent text-sm font-semibold">Tahap 4</span>
+                            <h3 class="font-semibold text-fg text-lg mt-1 mb-2">Revisi & Delivery</h3>
+                            <p class="text-fgMuted text-sm">Proses revisi hingga sempurna dan serah terima website kepada klien.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIAL SECTION -->
+        <section class="py-20 px-6">
+            <div class="max-w-3xl mx-auto">
+                <div class="reveal text-center mb-12">
+                    <span class="inline-block text-accent text-sm font-semibold tracking-wider uppercase mb-4">Testimoni Klien</span>
+                    <h2 class="font-display text-3xl md:text-4xl font-bold text-fg mb-6">
+                        Apa Kata Mereka
+                    </h2>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="reveal testimonial-card rounded-2xl p-8">
+                        <div class="flex items-center gap-1 mb-4">
+                            <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        </div>
+                        <p class="text-fgMuted mb-6 leading-relaxed">
+                            "Setelah menggunakan jasa LandingPro, konversi dari iklan kami meningkat signifikan. Tim yang sangat profesional dan memahami kebutuhan bisnis kami."
+                        </p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-accent/20 rounded-full flex items-center justify-center">
+                                <span class="text-accent font-semibold">RS</span>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-fg">Rizki Santoso</p>
+                                <p class="text-sm text-fgMuted">Owner, Toko Elektronik</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="reveal testimonial-card rounded-2xl p-8">
+                        <div class="flex items-center gap-1 mb-4">
+                            <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        </div>
+                        <p class="text-fgMuted mb-6 leading-relaxed">
+                            "Prosesnya cepat dan hasilnya memuaskan. Website kami sekarang terlihat lebih kredibel dan banyak klien yang memberikan feedback positif."
+                        </p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-accent/20 rounded-full flex items-center justify-center">
+                                <span class="text-accent font-semibold">DA</span>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-fg">Dewi Anggraini</p>
+                                <p class="text-sm text-fgMuted">Marketing Manager, Property</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="reveal testimonial-card rounded-2xl p-8">
+                        <div class="flex items-center gap-1 mb-4">
+                            <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        </div>
+                        <p class="text-fgMuted mb-6 leading-relaxed">
+                            "Sebagai pemula di dunia digital, saya sangat terbantu dengan layanan ini. Tim yang sabar menjelaskan dan memberikan saran yang tepat untuk bisnis saya."
+                        </p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-accent/20 rounded-full flex items-center justify-center">
+                                <span class="text-accent font-semibold">BW</span>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-fg">Budi Wicaksono</p>
+                                <p class="text-sm text-fgMuted">Founder, Startup Kuliner</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SCARCITY SECTION -->
+        <section class="py-16 px-6 bg-gradient-to-b from-bgElevated/50 to-transparent">
+            <div class="max-w-3xl mx-auto">
+                <div class="reveal counter-box rounded-2xl p-8 text-center">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 bg-red-500/10 border border-red-500/30 rounded-full mb-6">
+                        <span class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
+                        <span class="text-red-400 text-sm font-medium">Penawaran Terbatas</span>
+                    </div>
+                    <h3 class="font-display text-2xl md:text-3xl font-bold text-fg mb-4">
+                        Slot Hanya Tersisa <span class="text-accent" id="slot-count">7</span> Untuk Bulan Ini
+                    </h3>
+                    <p class="text-fgMuted mb-6">
+                        Karena kami mengerjakan setiap proyek secara detail, kapasitas kami terbatas untuk menjaga kualitas.
+                    </p>
+                    
+                    <!-- Progress Bar -->
+                    <div class="bg-bgCard rounded-full h-3 overflow-hidden mb-4">
+                        <div class="progress-bar h-full rounded-full transition-all duration-1000" style="width: 77%"></div>
+                    </div>
+                    <p class="text-sm text-fgMuted">
+                        <span class="text-fg">17 dari 24 slot</span> telah terisi
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRICING / CTA SECTION -->
+        <section id="cta-section" class="py-20 px-6">
+            <div class="max-w-3xl mx-auto">
+                <div class="reveal text-center mb-10">
+                    <span class="inline-block text-accent text-sm font-semibold tracking-wider uppercase mb-4">Investasi Untuk Bisnis Anda</span>
+                    <h2 class="font-display text-3xl md:text-4xl font-bold text-fg mb-6">
+                        Mulai Tingkatkan Konversi Bisnis Anda
+                    </h2>
+                </div>
+
+                <div class="reveal bg-bgCard border border-accent/30 rounded-3xl p-8 md:p-10 relative overflow-hidden">
+                    <!-- Decorative -->
+                    <div class="absolute top-0 right-0 w-40 h-40 bg-accent/5 rounded-full blur-3xl"></div>
+                    
+                    <!-- Badge -->
+                    <div class="inline-flex items-center gap-2 px-3 py-1 bg-accent/10 border border-accent/30 rounded-full mb-6">
+                        <span class="text-accent text-xs font-semibold">PROMO TERBATAS</span>
+                    </div>
+
+                    <!-- Package Name -->
+                    <h3 class="font-display text-2xl font-bold text-fg mb-2">Landing Page Profesional</h3>
+                    <p class="text-fgMuted mb-6">Soluasi lengkap untuk bisnis yang ingin meningkatkan konversi</p>
+
+                    <!-- Price -->
+                    <div class="mb-6">
+                        <div class="flex items-baseline gap-3">
+                            <span class="text-fgMuted text-lg line-through price-strike">Rp 1.499.000</span>
+                        </div>
+                        <div class="flex items-baseline gap-2 mt-1">
+                            <span class="text-accent text-4xl md:text-5xl font-bold">Rp 99.000</span>
+                        </div>
+                        <p class="text-fgMuted text-sm mt-2">Harga promo berlaku hingga akhir bulan</p>
+                    </div>
+
+                    <!-- Features -->
+                    <div class="space-y-3 mb-8">
+                        <div class="flex items-center gap-3">
+                            <svg class="w-5 h-5 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-fg">Desain Landing Page Profesional</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <svg class="w-5 h-5 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-fg">Copywriting Berbasis Konversi</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <svg class="w-5 h-5 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-fg">Responsif di Semua Perangkat</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <svg class="w-5 h-5 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-fg">Hingga 3x Revisi</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <svg class="w-5 h-5 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-fg">Integrasi WhatsApp & Email</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <svg class="w-5 h-5 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-fg">Free Hosting 1 Tahun</span>
+                        </div>
+                    </div>
+
+                    <!-- CTA Button -->
+                    <button class="btn-primary w-full py-4 text-bg font-semibold text-lg rounded-xl mb-3">
+                        Beli Sekarang
+                    </button>
+                    <p class="text-center text-sm text-fgMuted">
+                        Pembayaran aman via Transfer Bank / E-Wallet
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- GUARANTEE SECTION -->
+        <section class="py-16 px-6">
+            <div class="max-w-3xl mx-auto">
+                <div class="reveal bg-bgCard border border-accent/20 rounded-2xl p-8 text-center">
+                    <div class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-fg mb-4">Garansi Kepuasan</h3>
+                    <p class="text-fgMuted leading-relaxed max-w-xl mx-auto">
+                        Jika hasil kerja kami tidak sesuai dengan brief yang telah disepakati, kami akan merevisi hingga Anda puas. Kepuasan klien adalah prioritas utama kami.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ SECTION -->
+        <section class="py-20 px-6 bg-bgElevated/50">
+            <div class="max-w-3xl mx-auto">
+                <div class="reveal text-center mb-12">
+                    <span class="inline-block text-accent text-sm font-semibold tracking-wider uppercase mb-4">Pertanyaan Umum</span>
+                    <h2 class="font-display text-3xl md:text-4xl font-bold text-fg mb-6">
+                        Hal Yang Sering Ditanyakan
+                    </h2>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="reveal faq-item bg-bgCard border border-border rounded-xl overflow-hidden">
+                        <button class="faq-trigger w-full px-6 py-5 flex items-center justify-between text-left">
+                            <span class="font-semibold text-fg">Berapa lama proses pengerjaannya?</span>
+                            <svg class="faq-icon w-5 h-5 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m6-6H6"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 pb-5">
+                            <p class="text-fgMuted">Proses pengerjaan biasanya memakan waktu 7-14 hari kerja tergantung kompleksitas proyek dan kecepatan feedback dari klien.</p>
+                        </div>
+                    </div>
+
+                    <div class="reveal faq-item bg-bgCard border border-border rounded-xl overflow-hidden">
+                        <button class="faq-trigger w-full px-6 py-5 flex items-center justify-between text-left">
+                            <span class="font-semibold text-fg">Apakah saya perlu menyediakan konten sendiri?</span>
+                            <svg class="faq-icon w-5 h-5 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m6-6H6"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 pb-5">
+                            <p class="text-fgMuted">Tidak perlu. Tim kami akan membantu menyusun copywriting berdasarkan informasi bisnis yang Anda berikan. Anda hanya perlu memberikan data dasar tentang produk/layanan Anda.</p>
+                        </div>
+                    </div>
+
+                    <div class="reveal faq-item bg-bgCard border border-border rounded-xl overflow-hidden">
+                        <button class="faq-trigger w-full px-6 py-5 flex items-center justify-between text-left">
+                            <span class="font-semibold text-fg">Bagaimana sistem pembayarannya?</span>
+                            <svg class="faq-icon w-5 h-5 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m6-6H6"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 pb-5">
+                            <p class="text-fgMuted">Pembayaran dapat dilakukan via transfer bank atau e-wallet. Untuk proyek custom, bisa dengan sistem DP 50% di awal dan pelunasan setelah selesai.</p>
+                        </div>
+                    </div>
+
+                    <div class="reveal faq-item bg-bgCard border border-border rounded-xl overflow-hidden">
+                        <button class="faq-trigger w-full px-6 py-5 flex items-center justify-between text-left">
+                            <span class="font-semibold text-fg">Apakah website bisa diedit sendiri setelah jadi?</span>
+                            <svg class="faq-icon w-5 h-5 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m6-6H6"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 pb-5">
+                            <p class="text-fgMuted">Ya, website akan dibuat dengan platform yang mudah dikelola. Kami juga akan memberikan panduan singkat untuk pengelolaan dasar.</p>
+                        </div>
+                    </div>
+
+                    <div class="reveal faq-item bg-bgCard border border-border rounded-xl overflow-hidden">
+                        <button class="faq-trigger w-full px-6 py-5 flex items-center justify-between text-left">
+                            <span class="font-semibold text-fg">Apakah ada biaya tambahan lain?</span>
+                            <svg class="faq-icon w-5 h-5 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m6-6H6"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 pb-5">
+                            <p class="text-fgMuted">Tidak ada biaya tersembunyi. Harga yang tertera sudah termasuk desain, development, dan hosting selama 1 tahun. Biaya domain (jika diperlukan) akan diinformasikan di awal.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FINAL CTA -->
+        <section class="py-20 px-6">
+            <div class="max-w-3xl mx-auto text-center">
+                <div class="reveal">
+                    <h2 class="font-display text-3xl md:text-4xl font-bold text-fg mb-6">
+                        Siap Meningkatkan Konversi Bisnis Anda?
+                    </h2>
+                    <p class="text-fgMuted text-lg mb-8 max-w-xl mx-auto">
+                        Jangan biarkan traffic Anda terbuang sia-sia. Konsultasikan kebutuhan landing page Anda dengan tim kami secara gratis.
+                    </p>
+                    
+                    <a href="#cta-section" class="btn-primary inline-block px-8 py-4 text-bg font-semibold text-lg rounded-xl">
+                        Konsultasi Gratis Sekarang
+                    </a>
+                    <p class="text-sm text-fgMuted mt-3">
+                        Tanpa komitmen. Kami akan menghubungi Anda dalam 1x24 jam.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="py-10 px-6 border-t border-border">
+        <div class="max-w-3xl mx-auto text-center">
+            <div class="flex items-center justify-center gap-2 mb-4">
+                <div class="w-8 h-8 bg-gradient-to-br from-accent to-accentLight rounded-lg flex items-center justify-center">
+                    <svg class="w-5 h-5 text-bg" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                </div>
+                <span class="font-display text-xl font-semibold text-fg">LandingPro</span>
+            </div>
+            <p class="text-fgMuted text-sm mb-4">
+                Jasa pembuatan landing page profesional untuk bisnis Indonesia
+            </p>
+            <div class="flex justify-center gap-6 text-fgMuted text-sm">
+                <a href="#" class="hover:text-accent transition-colors">Syarat & Ketentuan</a>
+                <a href="#" class="hover:text-accent transition-colors">Kebijakan Privasi</a>
+            </div>
+            <p class="text-fgMuted/60 text-xs mt-6">
+                &copy; 2024 LandingPro. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize after DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            // Scroll Reveal
+            const revealElements = document.querySelectorAll('.reveal');
+            
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            revealElements.forEach(el => revealObserver.observe(el));
+
+            // FAQ Accordion
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const trigger = item.querySelector('.faq-trigger');
+                
+                trigger.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    
+                    // Close all other items
+                    faqItems.forEach(otherItem => {
+                        otherItem.classList.remove('active');
+                    });
+                    
+                    // Toggle current item
+                    if (!isActive) {
+                        item.classList.add('active');
+                    }
+                });
+            });
+
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Header scroll effect
+            const header = document.querySelector('header');
+            let lastScroll = 0;
+
+            window.addEventListener('scroll', () => {
+                const currentScroll = window.pageYOffset;
+                
+                if (currentScroll > 100) {
+                    header.style.background = 'rgba(10, 10, 10, 0.95)';
+                } else {
+                    header.style.background = 'rgba(10, 10, 10, 0.8)';
+                }
+                
+                lastScroll = currentScroll;
+            });
+
+            // Slot counter animation (subtle)
+            const slotCount = document.getElementById('slot-count');
+            if (slotCount) {
+                const originalValue = parseInt(slotCount.textContent);
+                
+                setInterval(() => {
+                    const currentValue = parseInt(slotCount.textContent);
+                    if (currentValue > 3) {
+                        // Randomly decrease to create urgency feeling
+                        if (Math.random() > 0.95) {
+                            slotCount.textContent = Math.max(3, currentValue - 1);
+                        }
+                    }
+                }, 30000); // Check every 30 seconds
+            }
+
+            // Button hover sound feedback (visual only)
+            const buttons = document.querySelectorAll('.btn-primary');
+            buttons.forEach(btn => {
+                btn.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-2px)';
+                });
+                
+                btn.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
